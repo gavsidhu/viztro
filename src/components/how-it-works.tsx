@@ -222,7 +222,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className='container mx-auto py-24 sm:py-32'>
+    <section className='container mx-auto py-24 sm:py-32' id="process">
       <div className='space-y-8'>
         <div className='space-y-4 text-center'>
           <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
@@ -239,17 +239,15 @@ export function HowItWorks() {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className={`group relative grid gap-4 md:gap-8 ${
-                index % 2 === 0
-                  ? "md:grid-cols-[2fr,3fr]"
-                  : "md:grid-cols-[3fr,2fr]"
-              }`}
+              className={`group relative grid gap-4 md:gap-8 ${index % 2 === 0
+                ? "md:grid-cols-[2fr,3fr]"
+                : "md:grid-cols-[3fr,2fr]"
+                }`}
             >
               {/* Content */}
               <div
-                className={`flex flex-col justify-center space-y-4 ${
-                  index % 2 === 0 ? "md:order-1" : "md:order-2"
-                }`}
+                className={`flex flex-col justify-center space-y-4 ${index % 2 === 0 ? "md:order-1" : "md:order-2"
+                  }`}
               >
                 <div className='flex items-center gap-4'>
                   <div className='flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20'>
@@ -262,9 +260,8 @@ export function HowItWorks() {
 
               {/* Visualization */}
               <div
-                className={`h-[300px] ${
-                  index % 2 === 0 ? "md:order-2" : "md:order-1"
-                }`}
+                className={`h-[300px] ${index % 2 === 0 ? "md:order-2" : "md:order-1"
+                  }`}
               >
                 {step.visualization}
               </div>

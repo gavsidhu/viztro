@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 
 export function ProblemSolution() {
   return (
-    <section className='container mx-auto py-24 sm:py-32'>
+    <section className='container mx-auto py-24 sm:py-32' id="why">
       <div className='relative space-y-16'>
         {/* Problem Section */}
         <div className='space-y-8'>

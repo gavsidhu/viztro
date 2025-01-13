@@ -1,7 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { Quote, Lightbulb, Target, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const journeySteps = [
   {
@@ -26,7 +26,7 @@ const journeySteps = [
 
 export function AboutFounder() {
   return (
-    <section className='container mx-auto relative py-24 sm:py-32'>
+    <section className='container mx-auto relative py-24 sm:py-32' id="about">
       <div className='absolute inset-0 -z-10'>
         <div className='absolute inset-0 bg-primary/5' />
         <div className='absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-background to-transparent' />

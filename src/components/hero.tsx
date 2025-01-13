@@ -1,10 +1,9 @@
 "use client"
 
 import { ArrowRight, CheckCircle } from 'lucide-react'
-import Image from "next/image"
 import Link from "next/link"
-
 import { Button } from "@/components/ui/button"
+import { DashboardPreview } from '@/components/dashboard-preview'
 
 const benefits = [
     "All-in-one Notion workspace for visionaries",
@@ -14,17 +13,15 @@ const benefits = [
 
 export function Hero() {
     return (
-        <section className="container relative mx-auto">
-            <div className="grid lg:grid-cols-[1fr,400px] gap-8 py-12 md:py-16 lg:py-24">
-                <div
-                    className="flex flex-col justify-center space-y-8"
-                >
+        <section className="container mx-auto relative">
+            <div className="mx-auto max-w-5xl space-y-12 py-12 md:py-16 lg:py-24">
+                <div className="mx-auto max-w-3xl space-y-8 text-center">
                     <div className="space-y-6">
                         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                             Transform Your Vision into{" "}
                             <span className="text-primary">Reality</span>
                         </h1>
-                        <p className="max-w-[600px] text-lg text-muted-foreground sm:text-xl">
+                        <p className="text-lg text-muted-foreground sm:text-xl">
                             The ultimate Notion template designed for visionaries. Seamlessly
                             manage your visions, initiatives, tasks, and assets in one powerful
                             system.
@@ -32,7 +29,7 @@ export function Hero() {
                     </div>
 
                     <div className="space-y-4">
-                        <div className="flex flex-col gap-2">
+                        <div className="inline-flex flex-col gap-2">
                             {benefits.map((benefit, index) => (
                                 <div
                                     key={index}
@@ -45,7 +42,7 @@ export function Hero() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 min-[400px]:flex-row">
+                    <div className="flex flex-col gap-4 min-[400px]:flex-row justify-center">
                         <Button asChild size="lg" className="gap-2">
                             <Link href="#pricing">
                                 Get Started Today
@@ -58,19 +55,9 @@ export function Hero() {
                     </div>
                 </div>
 
-                <div
-                    className="relative flex items-center justify-center lg:justify-end"
-                >
-                    <div className="relative aspect-square w-full max-w-[400px] overflow-hidden rounded-lg border bg-muted/50 shadow-xl">
-                        <Image
-                            src="/placeholder.svg?height=400&width=400"
-                            alt="V.I.T.A System Preview"
-                            fill
-                            className="object-cover"
-                            priority
-                        />
-                        {/* Add a gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-background/10 via-background/5 to-background/0" />
+                <div className="relative mx-auto w-full max-w-5xl">
+                    <div className="relative w-full overflow-hidden rounded-xl border shadow-2xl">
+                        <DashboardPreview />
                     </div>
                     {/* Add decorative elements */}
                     <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-primary/10 blur-xl" />

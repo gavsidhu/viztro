@@ -8,16 +8,23 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+type NavbarProps = {
+  promoBanner?: {
+    text: string
+  }
+}
 const navigation = [
-  { name: "Features", href: "#features" },
-  { name: "System", href: "#system" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "Home", href: "#home" },
+  { name: "Why", href: "#why" },
+  { name: "Process", href: "#process" },
+  { name: "About", href: "#about" },
+  { name: "Pricing", href: "#pricing" },
   { name: "FAQ", href: "#faq" },
 ];
 
-export function Navbar() {
+export function Navbar({ promoBanner }: NavbarProps) {
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [showPromoBanner, setShowPromoBanner] = useState(true);
+  const [showPromoBanner, setShowPromoBanner] = useState(promoBanner != undefined);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -30,9 +37,8 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-colors ${
-        isScrolled ? "bg-background backdrop-blur-sm" : "bg-background"
-      }`}
+      className={`sticky top-0 z-50 w-full border-b transition-colors ${isScrolled ? "bg-background backdrop-blur-sm" : "bg-background"
+        }`}
     >
       {showPromoBanner && (
         <div className='bg-primary px-4 py-2'>
@@ -40,8 +46,7 @@ export function Navbar() {
             <div className='flex flex-1 items-center justify-center gap-2 text-center text-sm text-primary-foreground'>
               <span className='hidden sm:inline'>🚀</span>
               <p>
-                <span className='hidden sm:inline'>Special launch offer:</span>{" "}
-                Get 20% off when you pre-order V.I.T.A template today!
+                {promoBanner?.text}
               </p>
             </div>
             <Button
@@ -56,7 +61,7 @@ export function Navbar() {
           </div>
         </div>
       )}
-      <nav className='container flex h-16 items-center justify-between'>
+      <nav className='container mx-auto flex h-16 items-center justify-between'>
         <div className='flex items-center gap-8'>
           <Link href='/' className='flex items-center space-x-2'>
             <div className='h-6 w-6 rounded-lg bg-primary'></div>
