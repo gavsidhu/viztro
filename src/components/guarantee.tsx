@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { Shield, ArrowRight, CheckCircle2 } from "lucide-react";
@@ -48,7 +49,7 @@ export function Guarantee() {
         </div>
 
         <div className='mx-auto grid max-w-5xl gap-8 md:grid-cols-3'>
-          {guaranteePoints.map((point, index) => (
+          {guaranteePoints.map((point) => (
             <div key={point.title}>
               <Card className='h-full bg-background/60 backdrop-blur-sm'>
                 <CardContent className='p-6'>

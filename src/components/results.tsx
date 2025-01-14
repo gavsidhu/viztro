@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { Trophy, Rocket, Clock, CheckCircle2 } from "lucide-react";
