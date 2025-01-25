@@ -1,16 +1,16 @@
 "use client";
 
 import {
+  TypeIcon as type,
+  LucideIcon,
   Check,
   Download,
-  FileText,
   Users,
   Zap,
   MessageCircle,
   BookOpen,
   ArrowRight,
 } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,56 +20,60 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-const features = [
-  "Complete V.I.T.A Notion Template",
-  "Vision-to-Reality Framework Guide",
-  "30+ Pre-built Vision Templates",
-  "Task Management System",
-  "Asset Organization Structure",
-  "Progress Tracking Dashboard",
-  "Regular Template Updates",
-  "Priority Support",
-];
+interface Bonus {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  value: string;
+}
 
-const bonuses = [
-  {
-    icon: FileText,
-    title: "Vision Clarity Workbook",
-    description: "A step-by-step guide to clarify and articulate your visions",
-    value: "$97",
-  },
-  {
-    icon: Users,
-    title: "Private Community Access",
-    description: "Connect with fellow visionaries and share insights",
-    value: "$197/year",
-  },
-  {
-    icon: Zap,
-    title: "Quick-Start Implementation Guide",
-    description: "Get up and running with V.I.T.A in under 60 minutes",
-    value: "$47",
-  },
-];
+interface SocialProof {
+  users: string;
+  rating: string;
+  reviews: string;
+}
 
-const socialProof = {
-  users: "2,000+",
-  rating: "4.9/5",
-  reviews: "500+",
-};
+interface PricingDetails {
+  current: number;
+  original: number;
+  discount: string;
+  currency: string;
+}
 
-export function Purchase() {
+interface PurchaseProps {
+  title: string;
+  description: string;
+  features: string[];
+  bonuses: Bonus[];
+  socialProof: SocialProof;
+  pricing: PricingDetails;
+  cta: {
+    text: string;
+    href?: string;
+  };
+  deliveryFeatures: string[];
+  securityNote: string;
+}
+
+export function Purchase({
+  title,
+  description,
+  features,
+  bonuses,
+  socialProof,
+  pricing,
+  cta,
+  deliveryFeatures,
+  securityNote,
+}: PurchaseProps) {
   return (
     <section className='container mx-auto py-24 sm:py-32' id='pricing'>
       <div className='relative space-y-16'>
         <div className='mx-auto max-w-2xl space-y-4 text-center'>
           <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
-            Start Realizing Your Vision Today
+            {title}
           </h2>
-          <p className='text-muted-foreground sm:text-lg'>
-            Join thousands of visionaries who have transformed their ideas into
-            reality with V.I.T.A.
-          </p>
+          <p className='text-muted-foreground sm:text-lg'>{description}</p>
         </div>
 
         <div className='mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr,400px]'>
@@ -138,14 +142,18 @@ export function Purchase() {
                       One-time payment
                     </div>
                     <div className='flex items-baseline gap-2'>
-                      <span className='text-4xl font-bold'>$197</span>
+                      <span className='text-4xl font-bold'>
+                        {pricing.currency}
+                        {pricing.current}
+                      </span>
                       <span className='text-sm font-medium text-muted-foreground line-through'>
-                        $497
+                        {pricing.currency}
+                        {pricing.original}
                       </span>
                     </div>
                   </div>
                   <div className='rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary'>
-                    60% OFF
+                    {pricing.discount} OFF
                   </div>
                 </div>
                 <div className='text-sm text-muted-foreground'>
@@ -176,30 +184,28 @@ export function Purchase() {
             <CardContent className='pb-4'>
               <div className='space-y-4'>
                 <div className='space-y-2'>
-                  <div className='flex items-center gap-2'>
-                    <Download className='h-4 w-4 text-primary' />
-                    <span className='text-sm'>Instant Digital Delivery</span>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                    <Check className='h-4 w-4 text-primary' />
-                    <span className='text-sm'>Lifetime Access</span>
-                  </div>
-                  <div className='flex items-center gap-2'>
-                    <Check className='h-4 w-4 text-primary' />
-                    <span className='text-sm'>
-                      30-Day Implementation Guarantee
-                    </span>
-                  </div>
+                  {deliveryFeatures.map((feature) => (
+                    <div key={feature} className='flex items-center gap-2'>
+                      {feature.includes("Instant") ? (
+                        <Download className='h-4 w-4 text-primary' />
+                      ) : (
+                        <Check className='h-4 w-4 text-primary' />
+                      )}
+                      <span className='text-sm'>{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </CardContent>
             <CardFooter className='flex flex-col gap-4'>
-              <Button size='lg' className='w-full group'>
-                Get Instant Access
-                <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
+              <Button size='lg' className='w-full group' asChild>
+                <a href={cta.href}>
+                  {cta.text}
+                  <ArrowRight className='ml-2 h-4 w-4 transition-transform group-hover:translate-x-1' />
+                </a>
               </Button>
               <div className='text-center text-xs text-muted-foreground'>
-                Secure payment powered by Stripe
+                {securityNote}
               </div>
             </CardFooter>
             <div className='absolute -right-12 -top-12 h-24 w-24 rounded-full bg-primary/10 blur-2xl' />

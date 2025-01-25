@@ -3,7 +3,29 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function FinalCTA() {
+interface Statistic {
+  value: string;
+  label: string;
+}
+
+interface FinalCTAProps {
+  title: string;
+  description: string;
+  statistics: Statistic[];
+  cta: {
+    text: string;
+    href?: string;
+  };
+  guaranteeText: string;
+}
+
+export function FinalCTA({
+  title,
+  description,
+  statistics,
+  cta,
+  guaranteeText,
+}: FinalCTAProps) {
   return (
     <section className='relative border-t'>
       {/* Gradient Background */}
@@ -19,44 +41,34 @@ export function FinalCTA() {
 
           <div className='space-y-4 md:space-y-6'>
             <h2 className='mx-auto max-w-3xl text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl'>
-              Your Vision Is Waiting to Become Reality
+              {title}
             </h2>
             <p className='mx-auto max-w-2xl text-muted-foreground sm:text-lg md:text-xl'>
-              Join 2,000+ visionaries who have already transformed their ideas
-              into tangible results with V.I.T.A.
+              {description}
             </p>
           </div>
 
           <div className='mx-auto w-full max-w-lg space-y-4'>
             <div className='grid grid-cols-3 gap-4 rounded-lg border bg-muted/50 p-4 text-center'>
-              <div>
-                <div className='text-2xl font-bold'>2k+</div>
-                <div className='text-xs text-muted-foreground'>
-                  Active Users
+              {statistics.map((stat) => (
+                <div key={stat.label}>
+                  <div className='text-2xl font-bold'>{stat.value}</div>
+                  <div className='text-xs text-muted-foreground'>
+                    {stat.label}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className='text-2xl font-bold'>10k+</div>
-                <div className='text-xs text-muted-foreground'>
-                  Visions Tracked
-                </div>
-              </div>
-              <div>
-                <div className='text-2xl font-bold'>4.9/5</div>
-                <div className='text-xs text-muted-foreground'>User Rating</div>
-              </div>
+              ))}
             </div>
           </div>
 
           <div className='space-y-4'>
-            <Button size='lg' className='group h-12 px-8 text-lg'>
-              Get Started Today
-              <ArrowRight className='ml-2 h-5 w-5 transition-transform group-hover:translate-x-1' />
+            <Button size='lg' className='group h-12 px-8 text-lg' asChild>
+              <a href={cta.href}>
+                {cta.text}
+                <ArrowRight className='ml-2 h-5 w-5 transition-transform group-hover:translate-x-1' />
+              </a>
             </Button>
-            <p className='text-sm text-muted-foreground'>
-              30-Day Implementation Guarantee • Lifetime Access • Instant
-              Delivery
-            </p>
+            <p className='text-sm text-muted-foreground'>{guaranteeText}</p>
           </div>
         </div>
 

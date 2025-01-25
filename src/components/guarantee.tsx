@@ -1,29 +1,41 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { Shield, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  Shield,
+  ArrowRight,
+  CheckCircle2,
+  type LucideIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const guaranteePoints = [
-  {
-    title: "30-Day Implementation Guarantee",
-    description:
-      "If you haven't started implementing your first vision within 30 days, we'll extend your access until you do.",
-  },
-  {
-    title: "Lifetime Access",
-    description:
-      "Get permanent access to the V.I.T.A template and all future updates.",
-  },
-  {
-    title: "Community Support",
-    description:
-      "Join our community of visionaries and get support whenever you need it.",
-  },
-];
+interface GuaranteePoint {
+  title: string;
+  description: string;
+}
 
-export function Guarantee() {
+interface GuaranteeProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  guaranteePoints: GuaranteePoint[];
+  testimonial: {
+    quote: string;
+  };
+  cta: {
+    text: string;
+    href: string;
+  };
+}
+
+export function Guarantee({
+  title,
+  subtitle,
+  description,
+  guaranteePoints,
+  testimonial,
+  cta,
+}: GuaranteeProps) {
   return (
     <section className='container mx-auto relative py-24 sm:py-32'>
       <div className='absolute inset-0 -z-10'>
@@ -40,12 +52,9 @@ export function Guarantee() {
             </div>
           </div>
           <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
-            Our Vision-to-Reality Guarantee
+            {title}
           </h2>
-          <p className='text-muted-foreground sm:text-lg'>
-            We&apos;re so confident in the V.I.T.A system that we&apos;re
-            backing it with our strongest guarantee ever.
-          </p>
+          <p className='text-muted-foreground sm:text-lg'>{description}</p>
         </div>
 
         <div className='mx-auto grid max-w-5xl gap-8 md:grid-cols-3'>
@@ -70,15 +79,12 @@ export function Guarantee() {
 
         <div className='mx-auto max-w-2xl space-y-8 text-center'>
           <div className='rounded-xl border bg-background/60 p-8 backdrop-blur-sm'>
-            <p className='text-lg font-medium'>
-              "We believe in your vision as much as you do. That's why we're
-              removing all the risk from your decision to get started."
-            </p>
+            <p className='text-lg font-medium'>{testimonial.quote}</p>
           </div>
 
           <Button size='lg' className='group'>
-            <a href='#pricing' className='flex items-center gap-2'>
-              Get Started Risk-Free
+            <a href={cta.href} className='flex items-center gap-2'>
+              {cta.text}
               <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
             </a>
           </Button>

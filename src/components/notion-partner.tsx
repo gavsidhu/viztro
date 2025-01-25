@@ -8,9 +8,6 @@ export function NotionPartner() {
       <BadgeCheck className='h-4 w-4 text-primary' />
       <p className='text-sm'>
         <span className='font-medium'>Notion Verified Creator</span>{" "}
-        <span className='text-muted-foreground'>
-          in the official Creator Network
-        </span>
       </p>
     </div>
   );
