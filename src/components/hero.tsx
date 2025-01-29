@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DashboardPreview } from "@/components/dashboard-preview";
+import { dashboardData } from "@/content/dashboard-preview";
 
 type HeroProps = {
   title: string;
@@ -54,7 +55,7 @@ export function Hero({ title, description, benefits }: HeroProps) {
 
         <div className='relative mx-auto w-full max-w-5xl'>
           <div className='relative w-full overflow-hidden rounded-xl border shadow-2xl'>
-            <DashboardPreview />
+            <DashboardPreview {...dashboardData} />
           </div>
           {/* Add decorative elements */}
           <div className='absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-primary/10 blur-xl' />

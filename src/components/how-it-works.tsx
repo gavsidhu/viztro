@@ -6,11 +6,12 @@ import { VisionCaptureVisualization } from "./visualizations/vision-capture";
 import { InitiativePlanningVisualization } from "./visualizations/initiative-planning";
 import { TaskManagementVisualization } from "./visualizations/task-management";
 import { AssetOrganizationVisualization } from "./visualizations/asset-organization";
+import { ReactNode } from "react";
 
 export interface Step {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: ReactNode;
   delay: number;
 }
 
@@ -55,20 +56,18 @@ export function HowItWorks({
             return (
               <div
                 key={step.title}
-                className={`group relative grid gap-4 md:gap-8 ${
-                  index % 2 === 0
+                className={`group relative grid gap-4 md:gap-8 ${index % 2 === 0
                     ? "md:grid-cols-[2fr,3fr]"
                     : "md:grid-cols-[3fr,2fr]"
-                }`}
+                  }`}
               >
                 <div
-                  className={`flex flex-col justify-center space-y-4 ${
-                    index % 2 === 0 ? "md:order-1" : "md:order-2"
-                  }`}
+                  className={`flex flex-col justify-center space-y-4 ${index % 2 === 0 ? "md:order-1" : "md:order-2"
+                    }`}
                 >
                   <div className='flex items-center gap-4'>
                     <div className='flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20'>
-                      <step.icon className='h-6 w-6 text-primary' />
+                      {step.icon}
                     </div>
                     <h3 className='text-xl font-semibold'>{step.title}</h3>
                   </div>
@@ -76,9 +75,8 @@ export function HowItWorks({
                 </div>
 
                 <div
-                  className={`h-[300px] ${
-                    index % 2 === 0 ? "md:order-2" : "md:order-1"
-                  }`}
+                  className={`h-[300px] ${index % 2 === 0 ? "md:order-2" : "md:order-1"
+                    }`}
                 >
                   <StepVisualization />
                 </div>

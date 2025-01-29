@@ -252,21 +252,21 @@ const solutions = {
         "V.I.T.A integrates years of research on content creator productivity and success patterns into one comprehensive system",
       researchAreas: [
         {
-          icon: BrainCircuit,
+          icon: <BrainCircuit className='h-6 w-6 text-primary' />,
           name: "Creator Psychology Research",
           description:
             "Built on studies of how successful content creators maintain consistent output while avoiding burnout",
           source: "Content Creator Psychology Institute",
         },
         {
-          icon: Target,
+          icon: <Target className='h-6 w-6 text-primary' />,
           name: "Content Strategy Studies",
           description:
             "Incorporates proven content planning methodologies from leading digital media researchers",
           source: "Digital Content Research Lab",
         },
         {
-          icon: LayoutGrid,
+          icon: <LayoutGrid className='h-6 w-6 text-primary' />,
           name: "Workflow Optimization",
           description:
             "Based on extensive research of how top creators organize and manage their content production",
@@ -296,19 +296,19 @@ const solutions = {
       },
       researchSteps: [
         {
-          icon: BookOpen,
+          icon: <BookOpen className='h-6 w-6 text-primary' />,
           title: "Research Phase",
           description:
             "Analyzed content creation workflows of successful creators across multiple platforms",
         },
         {
-          icon: BrainCircuit,
+          icon: <BrainCircuit className='h-6 w-6 text-primary' />,
           title: "System Development",
           description:
             "Created and refined our system based on proven content creation patterns",
         },
         {
-          icon: TargetIcon,
+          icon: <TargetIcon className='h-6 w-6 text-primary' />,
           title: "Implementation",
           description:
             "Optimized the system specifically for content creator workflows and needs",
@@ -348,8 +348,7 @@ const solutions = {
     },
     purchase: {
       title: "Start Realizing Your Vision Today",
-      description:
-        "Join thousands of visionaries who have transformed their ideas into reality with V.I.T.A.",
+      description: "Join thousands of visionaries who have transformed their ideas into reality with V.I.T.A.",
       features: [
         "Complete V.I.T.A Notion Template",
         "Vision-to-Reality Framework Guide",
@@ -362,20 +361,19 @@ const solutions = {
       ],
       bonuses: [
         {
-          icon: FileText,
+          icon: <FileText className="h-5 w-5 text-primary" />,
           title: "Vision Clarity Workbook",
-          description:
-            "A step-by-step guide to clarify and articulate your visions",
+          description: "A step-by-step guide to clarify and articulate your visions",
           value: "$97",
         },
         {
-          icon: Users,
+          icon: <Users className="h-5 w-5 text-primary" />,
           title: "Private Community Access",
           description: "Connect with fellow visionaries and share insights",
           value: "$197/year",
         },
         {
-          icon: Zap,
+          icon: <Zap className="h-5 w-5 text-primary" />,
           title: "Quick-Start Implementation Guide",
           description: "Get up and running with V.I.T.A in under 60 minutes",
           value: "$47",
@@ -396,11 +394,7 @@ const solutions = {
         text: "Get Instant Access",
         href: "#pricing",
       },
-      deliveryFeatures: [
-        "Instant Digital Delivery",
-        "Lifetime Access",
-        "30-Day Implementation Guarantee",
-      ],
+      deliveryFeatures: ["Instant Digital Delivery", "Lifetime Access", "30-Day Implementation Guarantee"],
       securityNote: "Secure payment powered by Stripe",
     },
     faqs: {

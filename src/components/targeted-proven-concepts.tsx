@@ -9,9 +9,10 @@ import {
   BrainCircuit,
   Target,
 } from "lucide-react";
+import { ReactNode } from "react";
 
 interface ResearchArea {
-  icon: LucideIcon;
+  icon: ReactNode;
   name: string;
   description: string;
   source: string;
@@ -23,7 +24,7 @@ interface KeyFinding {
 }
 
 interface ResearchStep {
-  icon: LucideIcon;
+  icon: ReactNode;
   title: string;
   description: string;
 }
@@ -73,7 +74,7 @@ export function TargetedProvenConcepts({
             >
               <div className='flex items-center gap-4'>
                 <div className='flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10'>
-                  <area.icon className='h-6 w-6 text-primary' />
+                  {area.icon}
                 </div>
                 <div>
                   <h3 className='font-semibold'>{area.name}</h3>
@@ -122,7 +123,7 @@ export function TargetedProvenConcepts({
                 {index % 2 === 0 ? (
                   <>
                     <div className='absolute left-0 top-1 flex h-12 w-12 items-center justify-center rounded-full border bg-muted sm:relative sm:left-auto sm:mr-0'>
-                      <step.icon className='h-6 w-6 text-primary' />
+                      {step.icon}
                     </div>
                     <div className='sm:w-1/2 sm:text-right sm:pr-8'>
                       <h3 className='font-semibold'>{step.title}</h3>
@@ -136,7 +137,7 @@ export function TargetedProvenConcepts({
                   <>
                     <div className='sm:w-1/2' />
                     <div className='absolute left-0 top-1 flex h-12 w-12 items-center justify-center rounded-full border bg-muted sm:relative sm:left-auto'>
-                      <step.icon className='h-6 w-6 text-primary' />
+                      {step.icon}
                     </div>
                     <div className='sm:w-1/2 sm:pl-8'>
                       <h3 className='font-semibold'>{step.title}</h3>
